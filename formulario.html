@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário Infantil</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    margin-top: 25px;
+    width: 100%;
+    padding: 12px;
+    background: #000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #333;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Formulário Convite Infantil</h2>
+
+<form id="formInfantil">
+
+<label>Tipo de Convite</label>
+<select id="tipo">
+<option>Clássico</option>
+<option>Interativo</option>
+<option>Infinito</option>
+<option>Animado</option>
+<option>Cinematográfico Mascote</option>
+<option>Cinematográfico Personagens</option>
+<option>Cinematográfico Mascote + Personagens</option>
+</select>
+
+<label>Nome do contratante</label>
+<input type="text" id="contratante">
+
+<label>Nome da criança</label>
+<input type="text" id="crianca">
+
+<label>Idade que vai completar</label>
+<input type="text" id="idade">
+
+<label>Data da festa</label>
+<input type="text" id="data">
+
+<label>Horário</label>
+<input type="text" id="horario">
+
+<label>Local da festa</label>
+<input type="text" id="local">
+
+<label>Tema</label>
+<input type="text" id="tema">
+
+<label>Deseja música?</label>
+<select id="musica">
+<option>Sim</option>
+<option>Não</option>
+</select>
+
+<label>Qual música?</label>
+<input type="text" id="qualMusica">
+
+<label>Observações adicionais</label>
+<textarea id="obs"></textarea>
+
+<button type="button" onclick="enviarWhatsApp()">Enviar para WhatsApp</button>
+
+</form>
+
+</div>
+
+<script>
+function enviarWhatsApp() {
+
+    var tipo = document.getElementById("tipo").value;
+    var contratante = document.getElementById("contratante").value;
+    var crianca = document.getElementById("crianca").value;
+    var idade = document.getElementById("idade").value;
+    var data = document.getElementById("data").value;
+    var horario = document.getElementById("horario").value;
+    var local = document.getElementById("local").value;
+    var tema = document.getElementById("tema").value;
+    var musica = document.getElementById("musica").value;
+    var qualMusica = document.getElementById("qualMusica").value;
+    var obs = document.getElementById("obs").value;
+
+    var mensagem = 
+    "FORMULÁRIO CONVITE INFANTIL%0A%0A" +
+
+    "Tipo de convite: " + tipo + "%0A%0A" +
+
+    "—— DADOS PRINCIPAIS ——%0A" +
+    "Nome do contratante: " + contratante + "%0A" +
+    "Nome da criança: " + crianca + "%0A" +
+    "Idade que vai completar: " + idade + "%0A" +
+    "Data da festa: " + data + "%0A" +
+    "Horário: " + horario + "%0A" +
+    "Local da festa: " + local + "%0A" +
+    "Tema: " + tema + "%0A%0A" +
+
+    "—— PERSONALIZAÇÃO ——%0A" +
+    "Deseja música? " + musica + "%0A" +
+    "Qual música? " + qualMusica + "%0A%0A" +
+
+    "Observações adicionais: " + obs;
+
+    var numero = "5522981387318";
+
+    var url = "https://wa.me/" + numero + "?text=" + mensagem;
+
+    window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
